@@ -89,11 +89,12 @@ plugin.creatingUser = function(params, callback) {
 
 plugin.createdUser = function(params) {
     var addCustomData = {
-        npi : customData[0].value, 
-        institution : customData[1].value,
-        practicetype : customData[2].value,
-        specialty : customData[3].value,
-        practiceyears : customData[4].value
+        firstname : customData[0].value, 
+        lastname : customData[1].value,
+        zip : customData[2].value,
+        dog : customData[3].value,
+		cat : customData[4].value,
+		other : customData[5].value
     }
 
     var keyID = 'user:' + params.uid + ':ns:custom_fields';
