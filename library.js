@@ -89,14 +89,13 @@ plugin.creatingUser = function(params, callback) {
 };
 
 plugin.createdUser = function(params) {
-	console.log(customData);
     var addCustomData = {
-        firstname : customData[0].value, 
-        lastname : customData[1].value,
-        zip : customData[2].value,
-        dog : customData[3].value,
-		cat : customData[4].value,
-		other : customData[5].value
+        firstname : params.userData['firstname'], 
+        lastname : params.userData['lastname'],
+        zip : params.userData['zip'],
+        dog : params.userData['dog'],
+		cat : params.userData['cat'],
+		other : params.userData['other']
     }
 
     var keyID = 'user:' + params.uid + ':searchpaws:custom_fields';
