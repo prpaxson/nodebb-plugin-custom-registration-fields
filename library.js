@@ -40,11 +40,11 @@ plugin.addFields = function(params, callback) {
 
 	var pets = {
 		label: 'Pets',
-		html: '<input type="checkbox" name="dog" id="dog" value="dog">\
+		html: '<input type="checkbox" name="dog" id="dog" value=true>\
 		<label for="dog"> Dog</label><br>\
-		<input type="checkbox" name="cat" id="cat" value="cat">\
+		<input type="checkbox" name="cat" id="cat" value=true>\
 		<label for="cat"> Cat</label><br>\
-		<input type="checkbox" name="other" id="other" value="other">\
+		<input type="checkbox" name="other" id="other" value=true>\
 		<label for="other"> Other</label><br>\
 		<span class="help-block">Select all that apply.</span>'
 	};
