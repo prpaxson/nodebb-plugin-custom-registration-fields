@@ -7,35 +7,51 @@ plugin.init = function(params, callback) {
 	var app = params.router,
 		middleware = params.middleware,
 		controllers = params.controllers;
-		
-	app.get('/admin/registration-question', middleware.admin.buildHeader, renderAdmin);
-	app.get('/api/admin/registration-question', renderAdmin);
-
+	
 	callback();
 };
 
-plugin.addAdminNavigation = function(header, callback) {
-	header.plugins.push({
-		route: '/registration-question',
-		icon: 'fa-tint',
-		name: 'Registration Question'
-	});
+plugin.addFields = function(params, callback) {
 
-	callback(null, header);
-};
+	var firstname = {
+		label: 'First Name',
+		html: '<input class="form-control" type="text" name="firstname" id="firstname" placeholder="First Name">\
+		<span class="help-block">Enter your first name.</span>'
+	};
 
-plugin.addCaptcha = function(params, callback) {
-	var question = meta.config['registration-question:question'];
+	var lastname = {
+		label: 'Last Name',
+		html: '<input class="form-control" type="text" name="lastname" id="lastname" placeholder="Last Name">\
+		<span class="help-block">Enter your last name.</span>'
+	};
 
-	var captcha = {
-		label: 'Registration Question',
-		html: '<div class="well"><strong>' + question + '</strong><br /><input class="form-control" name="registration-question" id="registration-question" /></div>'
+	var zip = {
+		label: 'ZIP Code',
+		html: '<input class="form-control" type="text" name="zip" id="zip" placeholder="ZIP Code">\
+		<span class="help-block">Enter your ZIP code.</span>'
+	};
+
+	var pets = {
+		label: 'Pets',
+		html: '<input type="checkbox" name="dog" id="dog" value="dog">\
+		<label for="dog"> Dog</label><br>\
+		<input type="checkbox" name="cat" id="cat" value="cat">\
+		<label for="cat"> Cat</label><br>\
+		<input type="checkbox" name="other" id="other" value="other">\
+		<label for="other"> Other</label><br>\
+		<span class="help-block">Select the pets you own.</span>'
 	};
 
 	if (params.templateData.regFormEntry && Array.isArray(params.templateData.regFormEntry)) {
-		params.templateData.regFormEntry.push(captcha);
+		params.templateData.regFormEntry.push(firstname);
+		params.templateData.regFormEntry.push(lastname);
+		params.templateData.regFormEntry.push(zip);
+		params.templateData.regFormEntry.push(pets);
 	} else {
-		params.templateData.captcha = captcha;
+		params.templateData.firstname = firstname;
+		params.templateData.lastname = lastname;
+		params.templateData.lastname = zip;
+		params.templateData.lastname = pets;		
 	}
 
 	callback(null, params);
@@ -50,9 +66,5 @@ plugin.checkRegister = function(params, callback) {
 		callback(null, params);
 	}
 };
-
-function renderAdmin(req, res, next) {
-	res.render('admin/registration-question', {});
-}
 
 module.exports = plugin;

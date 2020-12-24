@@ -1,8 +1,8 @@
 {
-	"id": "nodebb-plugin-registration-question",
-	"name": "Registration Question",
-	"description": "Question and Answer plugin for the registration form",
-	"url": "https://github.com/NodeBB/nodebb-plugin-registration-question",
+	"id": "nodebb-plugin-searchpaws-registration-fields",
+	"name": "SearchPaws Registration Fields",
+	"description": "NodeBB plugin that adds SearchPaws registration fields",
+	"url": "https://github.com/prpaxson/nodebb-plugin-searchpaws-registration-fields",
 	"library": "./library.js",
 	"hooks": [
 		{
@@ -12,7 +12,7 @@
 			"hook": "filter:admin.header.build", "method": "addAdminNavigation"
 		},
 		{
-			"hook": "filter:register.build", "method": "addCaptcha"
+			"hook": "filter:register.build", "method": "addFields"
 		},
 		{
 			"hook": "filter:register.check", "method": "checkRegister"

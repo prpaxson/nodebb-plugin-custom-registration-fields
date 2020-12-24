@@ -1,27 +1,17 @@
 {
-  "name": "nodebb-plugin-registration-question",
-  "version": "0.1.11",
-  "description": "Question and Answer plugin for the NodeBB registration form",
+  "name": "nodebb-plugin-searchpaws-registration-fields",
+  "version": "1.0.0",
+  "description": "NodeBB plugin that adds SearchPaws registration fields",
   "main": "library.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/psychobunny/nodebb-plugin-registration-question"
+    "url": "https://github.com/prpaxson/nodebb-plugin-searchpaws-registration-fields"
   },
-  "keywords": [
-    "nodebb",
-    "plugin",
-    "registration",
-    "spam",
-    "question"
-  ],
   "author": {
-    "name": "psychobunny",
-    "email": "psycho.bunny@hotmail.com"
+    "name": "prpaxson",
+    "email": "prpaxson@gmail.com"
   },
   "license": "BSD-2-Clause",
-  "bugs": {
-    "url": "https://github.com/psychobunny/nodebb-plugin-registration-question/issues"
-  },
   "nbbpm": {
     "compatibility": "^0.7.0 || ^0.8.0"
   },
