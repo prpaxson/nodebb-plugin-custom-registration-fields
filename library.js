@@ -58,7 +58,7 @@ plugin.addFields = function(params, callback) {
 		params.templateData.firstname = firstname;
 		params.templateData.lastname = lastname;
 		params.templateData.lastname = zip;
-		params.templateData.lastname = pets;		
+		params.templateData.pets = pets;		
 	}
 
 	callback(null, params);
@@ -71,8 +71,7 @@ plugin.checkRegister = function(params, callback) {
     for(var key in customFields) {
 
         var value = userData[key];
-		console.log(value);
-		console.log(userData);
+
 		if (value == "" || value == undefined) {
             error = {message: 'Please complete all fields before registering.'};
         }
@@ -83,7 +82,7 @@ plugin.checkRegister = function(params, callback) {
 
 plugin.creatingUser = function(params, callback) {
     customData = params.data.customRows;
-
+	console.log(customData);
     callback(null, params);
 };
 
@@ -97,7 +96,8 @@ plugin.createdUser = function(params) {
 		other : customData[5].value
     }
 
-    var keyID = 'user:' + params.uid + ':ns:custom_fields';
+	console.log(addCustomData);
+    var keyID = 'user:' + params.uid + ':searchpaws:custom_fields';
 
     db.setObject(keyID, addCustomData, function(err) {
         if (err) {
