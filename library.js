@@ -9,8 +9,7 @@ var customFields = {
 		other : false
 	},
 	customData = [],
-	db = module.parent.require('./database'),
-	meta = require.main.require('./src/meta'),
+	db = require.main.require('./src/database'),
 	plugin = {};
 
 plugin.init = function(params, callback) {
