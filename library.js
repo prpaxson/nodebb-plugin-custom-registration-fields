@@ -66,6 +66,14 @@ plugin.checkRegister = function(params, callback) {
 			if ((value == "" || value == undefined)) {
 				error = {message: 'Please complete all fields before registering.'};
 			}
+			else if (key == "zip") {
+				if (value.length != 5) {
+					error = {message: 'ZIP Code must be 5 digits'};
+				}
+				else if (!/^[0-9]+$/.test(value)) {
+					error = {message: 'ZIP Code must be a numerical value'};
+				}
+			}
 			else {
 				customData.push({value: value})
 			}
@@ -94,7 +102,6 @@ plugin.createdUser = function(params) {
     }
 
     var keyID = 'user:' + params.user.uid + ':searchpaws:custom_fields';
-	console.log(keyID)
     db.setObject(keyID, addCustomData, function(err) {
         if (err) {
             return callback(err);
