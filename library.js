@@ -89,6 +89,7 @@ plugin.creatingUser = function(params, callback) {
 };
 
 plugin.createdUser = function(params) {
+	console.log(customData);
     var addCustomData = {
         firstname : customData[0].value, 
         lastname : customData[1].value,
