@@ -99,7 +99,7 @@ plugin.createdUser = function(params) {
     }
 
     var keyID = 'user:' + params.uid + ':searchpaws:custom_fields';
-
+	console.log(keyID)
     db.setObject(keyID, addCustomData, function(err) {
         if (err) {
             return callback(err);
