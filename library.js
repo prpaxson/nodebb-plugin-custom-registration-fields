@@ -72,7 +72,7 @@ plugin.checkRegister = function(params, callback) {
 
         var value = userData[key];
 
-		if (value == "" || value == undefined) {
+		if ((value == "" || value == undefined) && (key != "dog" || key != "cat" || key != "other")) {
             error = {message: 'Please complete all fields before registering.'};
         }
     }
@@ -82,7 +82,7 @@ plugin.checkRegister = function(params, callback) {
 
 plugin.creatingUser = function(params, callback) {
     customData = params.data.customRows;
-	console.log(customData);
+
     callback(null, params);
 };
 
@@ -96,7 +96,6 @@ plugin.createdUser = function(params) {
 		other : customData[5].value
     }
 
-	console.log(addCustomData);
     var keyID = 'user:' + params.uid + ':searchpaws:custom_fields';
 
     db.setObject(keyID, addCustomData, function(err) {
