@@ -9,7 +9,6 @@ var customFields = {
 		other : false
 	},
 	customData = [],
-	user = module.parent.require('./user'),
 	db = module.parent.require('./database'),
 	meta = require.main.require('./src/meta'),
 	plugin = {};
