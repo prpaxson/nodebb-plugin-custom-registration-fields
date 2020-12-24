@@ -13,6 +13,21 @@
 		},
 		{
 			"hook": "filter:register.check", "method": "checkRegister"
+		},
+		{ 
+			"hook": "filter:user.create", "method": "creatingUser" 
+		},
+		{ 
+			"hook": "action:user.create", "method": "createdUser" 
+		},
+		{ 
+			"hook": "filter:admin.registrationQueue.customHeaders", "method": "customHeaders" 
+		},
+        { 
+			"hook": "filter:user.getRegistrationQueue", "method": "customFields" 
+		},
+		{ 
+			"hook": "filter:user.addToApprovalQueue", "method": "addToApprovalQueue" 
 		}
 	],
 	"staticDirs": {
