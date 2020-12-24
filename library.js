@@ -71,7 +71,8 @@ plugin.checkRegister = function(params, callback) {
     for(var key in customFields) {
 
         var value = userData[key];
-
+		console.log(value);
+		console.log(userData);
 		if (value == "" || value == undefined) {
             error = {message: 'Please complete all fields before registering.'};
         }
