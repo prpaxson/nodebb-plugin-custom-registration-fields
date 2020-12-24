@@ -12,14 +12,6 @@ var customFields = {
 	db = require.main.require('./src/database'),
 	plugin = {};
 
-plugin.init = function(params, callback) {
-	var app = params.router,
-		middleware = params.middleware,
-		controllers = params.controllers;
-	
-	callback();
-};
-
 plugin.addFields = function(params, callback) {
 
 	var firstname = {
@@ -69,7 +61,7 @@ plugin.checkRegister = function(params, callback) {
     var error = null;
 
     for(var key in customFields) {
-
+		customData.push({value: userData[key]})
 		if (key != "dog" && key != "cat" && key != "other") {
 			var value = userData[key];
 
@@ -82,20 +74,14 @@ plugin.checkRegister = function(params, callback) {
     callback(error, params);
 };
 
-plugin.creatingUser = function(params, callback) {
-    customData = params.data.customRows;
-
-    callback(null, params);
-};
-
 plugin.createdUser = function(params) {
     var addCustomData = {
-        firstname : params.userData['firstname'], 
-        lastname : params.userData['lastname'],
-        zip : params.userData['zip'],
-        dog : params.userData['dog'],
-		cat : params.userData['cat'],
-		other : params.userData['other']
+        firstname : customData[0].value, 
+        lastname : customData[1].value,
+        zip : customData[2].value,
+        dog : customData[3].value,
+		cat : customData[4].value,
+		other : customData[5].value
     }
 
     var keyID = 'user:' + params.uid + ':searchpaws:custom_fields';
