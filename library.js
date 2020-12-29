@@ -59,6 +59,7 @@ plugin.addFields = function(params, callback) {
 plugin.checkRegister = function(params, callback) {
 	var userData = params.userData;
     var error = null;
+
     for(var key in customFields) {
 		var value = userData[key];
 		if (key != "dog" && key != "cat" && key != "other") {
