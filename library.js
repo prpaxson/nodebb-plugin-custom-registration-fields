@@ -73,6 +73,9 @@ plugin.checkRegister = function(params, callback) {
 				else if (!/^[0-9]+$/.test(value)) {
 					error = {message: 'ZIP Code must be a numerical value'};
 				}
+				else {
+					customData.push({value: value});
+				}
 			}
 			else {
 				customData.push({value: value});
@@ -81,7 +84,6 @@ plugin.checkRegister = function(params, callback) {
 		else {
 			if (value == "" || value == undefined || value == null) {
 				customData.push({value: "false"});
-				console.log(customData);
 			}
 			else {
 				customData.push({value: value});
