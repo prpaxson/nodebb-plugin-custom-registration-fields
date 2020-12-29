@@ -99,7 +99,6 @@ plugin.createdUser = function(params) {
         dog : customData[3].value,
 		cat : customData[4].value,
 		other : customData[5].value,
-		uid : params.user.uid
     }
 
     var keyID = 'user:' + params.user.uid + ':searchpaws:custom_fields';
