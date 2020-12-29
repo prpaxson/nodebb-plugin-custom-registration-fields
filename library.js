@@ -75,15 +75,16 @@ plugin.checkRegister = function(params, callback) {
 				}
 			}
 			else {
-				customData.push({value: value})
+				customData.push({value: value});
 			}
 		}
 		else {
 			if (value == "" || value == undefined || value == null) {
-				customData.push({value: "false"})
+				customData.push({value: "false"});
+				console.log(value);
 			}
 			else {
-				customData.push({value: value})
+				customData.push({value: value});
 			}
 		}
     }
@@ -99,6 +100,7 @@ plugin.createdUser = function(params) {
         dog : customData[3].value,
 		cat : customData[4].value,
 		other : customData[5].value,
+		uid : params.user.uid
     }
 
     var keyID = 'user:' + params.user.uid + ':searchpaws:custom_fields';
