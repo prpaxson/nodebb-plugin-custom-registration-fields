@@ -59,7 +59,6 @@ plugin.addFields = function(params, callback) {
 plugin.checkRegister = function(params, callback) {
 	var userData = params.userData;
     var error = null;
-
     for(var key in customFields) {
 		var value = userData[key];
 		if (key != "dog" && key != "cat" && key != "other") {
@@ -93,6 +92,7 @@ plugin.checkRegister = function(params, callback) {
 
 plugin.createdUser = function(params) {
     var addCustomData = {
+		uid : params.user.uid,
         firstname : customData[0].value, 
         lastname : customData[1].value,
         zip : customData[2].value,
