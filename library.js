@@ -81,7 +81,7 @@ plugin.checkRegister = function(params, callback) {
 		else {
 			if (value == "" || value == undefined || value == null) {
 				customData.push({value: "false"});
-				console.log(value);
+				console.log(customData);
 			}
 			else {
 				customData.push({value: value});
