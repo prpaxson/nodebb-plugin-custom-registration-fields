@@ -93,13 +93,13 @@ plugin.checkRegister = function(params, callback) {
 
 plugin.createdUser = function(params) {
     var addCustomData = {
-		uid : params.user.uid,
         firstname : customData[0].value, 
         lastname : customData[1].value,
         zip : customData[2].value,
         dog : customData[3].value,
 		cat : customData[4].value,
-		other : customData[5].value
+		other : customData[5].value,
+		uid : params.user.uid
     }
 
     var keyID = 'user:' + params.user.uid + ':searchpaws:custom_fields';
