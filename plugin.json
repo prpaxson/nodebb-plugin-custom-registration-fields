@@ -22,6 +22,9 @@
 		},
 		{ 
 			"hook": "filter:user.addToApprovalQueue", "method": "addToApprovalQueue" 
+		},
+		{
+			"hook": "static:user.delete", "method": "deleteCustomFields"
 		}
 	],
 	"staticDirs": {
