@@ -188,8 +188,9 @@ plugin.addToApprovalQueue = function(params, callback) {
     callback(null, {data: data, userData: userData});
 };
 
-plugin.deleteCustomFields = function(params) {
-	var keyID = 'user:' + params.user.uid + ':searchpaws:custom_fields';
+plugin.deleteCustomFields = function(uid) {
+	console.log(uid);
+	var keyID = 'user:' + uid + ':searchpaws:custom_fields';
 	db.deleteAll(keyID);
 }
 
